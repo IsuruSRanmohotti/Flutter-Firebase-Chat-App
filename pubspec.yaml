@@ -40,6 +40,10 @@ dependencies:
   flutter_signin_button: ^2.0.0
   chat_bubbles: ^1.5.0
   firebase_core: ^2.15.1
+  firebase_auth: ^4.9.0
+  google_sign_in: ^6.1.5
+  cloud_firestore: ^4.9.1
+  timeago: ^3.5.0
 
 dev_dependencies:
   flutter_test:

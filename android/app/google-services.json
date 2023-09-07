@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "639735595481-5hf81l199vo1bm6l6lpsea24n0vtiidu.apps.googleusercontent.com",
+          "client_id": "639735595481-tp5e8q7kcvic9gvg3iap5656fekdr6tm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "lk.ce.mychat",
+            "certificate_hash": "e6ae16319b7d610b185f94d3cc94fcd38719e2b3"
+          }
+        },
+        {
+          "client_id": "639735595481-mm74m10973smqb78bhd32fjd4a9lmj5v.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -29,6 +37,13 @@
             {
               "client_id": "639735595481-5hf81l199vo1bm6l6lpsea24n0vtiidu.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "639735595481-mg16h6rbd00ouadno8008kbvsredf2n3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "lk.ce.mychat"
+              }
             }
           ]
         }
