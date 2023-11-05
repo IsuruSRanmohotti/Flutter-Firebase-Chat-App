@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:my_chat/controllers/auth_controller.dart';
 import 'package:my_chat/models/user_model.dart';
+import 'package:my_chat/providers/user_provider.dart';
 import 'package:my_chat/screens/home/conversations/conversation.dart';
 import 'package:my_chat/utils/navigation/custom_navigation.dart';
+import 'package:provider/provider.dart';
 
 import '../screens/auth/sign_in_page.dart';
 
@@ -21,6 +23,7 @@ class AuthProvider extends ChangeNotifier {
       } else {
         Logger().f('User is signed in!');
         _user = user;
+        Provider.of<UserProvider>(context, listen: false).updateOnlineStatus(true , context);
         notifyListeners();
         CustomNavigation.nextPage(context, const ConversationScreen());
       }
@@ -41,7 +44,9 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
-  Future<void> signOut() async {
+  Future<void> signOut(BuildContext context) async {
+    Provider.of<UserProvider>(context, listen: false)
+        .updateOnlineStatus(false, context);
     authController.userSignOut();
   }
 }

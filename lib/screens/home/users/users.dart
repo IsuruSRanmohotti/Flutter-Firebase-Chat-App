@@ -39,7 +39,7 @@ class _UsersScreenState extends State<UsersScreen> {
             Divider(color: Colors.grey.shade300),
             Expanded(
               child: StreamBuilder<QuerySnapshot>(
-                  stream: UsersController().getAllUsers(),
+                  stream: UsersController().getAllUsers(context),
                   builder: (context, snapshot) {
                     if (snapshot.hasError) {
                       return const Center(

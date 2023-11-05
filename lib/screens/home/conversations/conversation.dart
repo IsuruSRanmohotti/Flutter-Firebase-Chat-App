@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
+import 'package:my_chat/providers/user_provider.dart';
 import 'package:my_chat/screens/home/users/users.dart';
 import 'package:my_chat/utils/navigation/custom_navigation.dart';
+import 'package:provider/provider.dart';
 
 import 'widgets/conversation_list.dart';
 import 'widgets/header.dart';
@@ -12,7 +15,34 @@ class ConversationScreen extends StatefulWidget {
   State<ConversationScreen> createState() => _ConversationScreenState();
 }
 
-class _ConversationScreenState extends State<ConversationScreen> {
+class _ConversationScreenState extends State<ConversationScreen>
+    with WidgetsBindingObserver {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    WidgetsBinding.instance.removeObserver(this);
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    // TODO: implement didChangeAppLifecycleState
+    super.didChangeAppLifecycleState(state);
+    Logger().f(state);
+    if (state == AppLifecycleState.resumed) {
+      Provider.of<UserProvider>(context, listen: false)
+          .updateOnlineStatus(true, context);
+    } else {
+      Provider.of<UserProvider>(context, listen: false)
+          .updateOnlineStatus(false, context);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

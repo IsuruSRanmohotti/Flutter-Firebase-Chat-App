@@ -22,16 +22,17 @@ class Header extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            GestureDetector(
-              onTap: () {
-                Provider.of<AuthProvider>(context, listen: false).signOut();
-              },
-              child: CircleAvatar(
-                radius: 16,
-                backgroundImage: NetworkImage(
-                    Provider.of<AuthProvider>(context).user!.photoURL!),
-              ),
-            )
+            CircleAvatar(
+              radius: 16,
+              backgroundImage: NetworkImage(
+                  Provider.of<AuthProvider>(context).user!.photoURL!),
+            ),
+            IconButton(
+                onPressed: () {
+                  Provider.of<AuthProvider>(context, listen: false)
+                      .signOut(context);
+                },
+                icon: const Icon(Icons.exit_to_app))
           ],
         ),
         const Divider(),
