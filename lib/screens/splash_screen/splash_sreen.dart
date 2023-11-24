@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Timer(const Duration(seconds: 3), () {
-      Provider.of<AuthProvider>(context, listen: false)
+      Provider.of<AuthUProvider>(context, listen: false)
           .listenToAuthState(context);
     });
   }

@@ -23,7 +23,7 @@ class _SignInPageState extends State<SignInPage> {
               Buttons.Google,
               text: "Sign up with Google",
               onPressed: () {
-                Provider.of<AuthProvider>(context, listen: false)
+                Provider.of<AuthUProvider>(context, listen: false)
                     .signInWithGoogle();
               },
             ),

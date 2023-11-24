@@ -7,8 +7,7 @@ class UserProvider extends ChangeNotifier {
   UsersController usersController = UsersController();
 
   Future<void> updateOnlineStatus(bool isOnline, BuildContext context) async {
-    String uid = Provider.of<AuthProvider>(context, listen: false).user!.uid;
+    String uid = Provider.of<AuthUProvider>(context, listen: false).user!.uid;
     usersController.updateOnlineStatus(isOnline, uid);
   }
-
 }

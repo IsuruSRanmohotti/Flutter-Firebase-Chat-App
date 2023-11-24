@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
+import 'package:my_chat/controllers/notification_controller.dart';
 import 'package:my_chat/providers/user_provider.dart';
 import 'package:my_chat/screens/home/users/users.dart';
 import 'package:my_chat/utils/navigation/custom_navigation.dart';
@@ -21,6 +22,9 @@ class _ConversationScreenState extends State<ConversationScreen>
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    NotificationController().updateToken();
+    NotificationController().handleForeground();
+    NotificationController().setupInteractedMessage();
   }
 
   @override

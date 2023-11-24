@@ -25,11 +25,11 @@ class Header extends StatelessWidget {
             CircleAvatar(
               radius: 16,
               backgroundImage: NetworkImage(
-                  Provider.of<AuthProvider>(context).user!.photoURL!),
+                  Provider.of<AuthUProvider>(context).user!.photoURL!),
             ),
             IconButton(
                 onPressed: () {
-                  Provider.of<AuthProvider>(context, listen: false)
+                  Provider.of<AuthUProvider>(context, listen: false)
                       .signOut(context);
                 },
                 icon: const Icon(Icons.exit_to_app))

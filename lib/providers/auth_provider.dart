@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 
 import '../screens/auth/sign_in_page.dart';
 
-class AuthProvider extends ChangeNotifier {
+class AuthUProvider extends ChangeNotifier {
   AuthController authController = AuthController();
   User? _user;
   User? get user => _user;
@@ -23,7 +23,8 @@ class AuthProvider extends ChangeNotifier {
       } else {
         Logger().f('User is signed in!');
         _user = user;
-        Provider.of<UserProvider>(context, listen: false).updateOnlineStatus(true , context);
+        Provider.of<UserProvider>(context, listen: false)
+            .updateOnlineStatus(true, context);
         notifyListeners();
         CustomNavigation.nextPage(context, const ConversationScreen());
       }
